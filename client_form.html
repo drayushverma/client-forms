@@ -31,6 +31,23 @@
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 30px;
+            table-layout: fixed;
+        }
+        
+        /* Ensure client info table uses full width */
+        .client-info-table {
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+        
+        .client-info-table td:first-child {
+            width: 30%;
+            font-weight: bold;
+            padding-right: 20px;
+        }
+        
+        .client-info-table td:last-child {
+            width: 70%;
         }
         th {
             background-color: #3498db;
@@ -279,31 +296,35 @@
             <h2 class="section-header">1. CLIENT INFORMATION</h2>
             
             <!-- Desktop view for client info -->
-            <table class="desktop-view" style="width: 100%;">
+            <table class="desktop-view client-info-table">
+                <colgroup>
+                    <col style="width: 30%;">
+                    <col style="width: 70%;">
+                </colgroup>
                 <tr>
-                    <td style="width: 30%; min-width: 150px;"><strong>Company Name</strong></td>
-                    <td style="width: 70%;"><input type="text" name="companyName" required placeholder="Enter company name"></td>
+                    <td><strong>Company Name</strong></td>
+                    <td><input type="text" name="companyName" required placeholder="Enter company name" style="width: 100%;"></td>
                 </tr>
                 <tr>
                     <td><strong>Contact Person</strong></td>
-                    <td><input type="text" name="contactPerson" required placeholder="Enter contact person name"></td>
+                    <td><input type="text" name="contactPerson" required placeholder="Enter contact person name" style="width: 100%;"></td>
                 </tr>
                 <tr>
                     <td><strong>Email</strong></td>
-                    <td><input type="email" name="email" required placeholder="Enter email address"></td>
+                    <td><input type="email" name="email" required placeholder="Enter email address" style="width: 100%;"></td>
                 </tr>
                 <tr>
                     <td><strong>Phone Number</strong></td>
-                    <td><input type="tel" name="phoneNumber" required placeholder="Enter phone number"></td>
+                    <td><input type="tel" name="phoneNumber" required placeholder="Enter phone number" style="width: 100%;"></td>
                 </tr>
                 <tr>
                     <td><strong>Country/Region</strong></td>
-                    <td><input type="text" name="countryRegion" required placeholder="Enter country/region"></td>
+                    <td><input type="text" name="countryRegion" required placeholder="Enter country/region" style="width: 100%;"></td>
                 </tr>
                 <tr>
                     <td><strong>Business Type</strong></td>
                     <td>
-                        <select name="businessType" required>
+                        <select name="businessType" required style="width: 100%;">
                             <option value="">Select business type</option>
                             <option value="brand">Brand Owner</option>
                             <option value="distributor">Distributor</option>
