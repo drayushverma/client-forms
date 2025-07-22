@@ -147,7 +147,10 @@
             <strong>Instructions:</strong> Please fill out this form completely to help us provide you with accurate quotations and samples. Click "Submit Form" at the bottom when complete.
         </div>
 
-        <form id="clientRequirementsForm">
+        <form id="clientRequirementsForm" action="https://formspree.io/f/mqalpapz" method="POST">
+            <input type="hidden" name="_subject" value="New Client Requirements Form Submission">
+    <input type="hidden" name="_next" value="https://drayushverma.github.io/client-forms/thank-you.html">
+    <input type="hidden" name="_captcha" value="false">
             <h2 class="section-header">1. CLIENT INFORMATION</h2>
             <table>
                 <tr>
@@ -481,7 +484,7 @@
 
     <script>
         document.getElementById('clientRequirementsForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+           // e.preventDefault();
             
             // Get form data
             const formData = new FormData(this);
