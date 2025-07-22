@@ -114,6 +114,132 @@
             border-radius: 5px;
             margin-top: 20px;
         }
+        
+        /* Desktop styles */
+        .desktop-view {
+            display: block;
+        }
+        .mobile-view {
+            display: none;
+        }
+        
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 22px;
+            }
+            
+            /* Hide desktop table on mobile */
+            .desktop-view {
+                display: none;
+            }
+            
+            /* Show mobile cards */
+            .mobile-view {
+                display: block;
+            }
+            
+            /* Client info mobile optimization */
+            .client-info-mobile td {
+                display: block;
+                width: 100%;
+                padding: 8px 10px;
+            }
+            
+            .client-info-mobile td:first-child {
+                font-weight: bold;
+                background-color: #f8f9fa;
+                border-bottom: none;
+                padding-bottom: 5px;
+            }
+            
+            .client-info-mobile td:last-child {
+                padding-top: 5px;
+                margin-bottom: 15px;
+            }
+            
+            /* Product cards styling */
+            .product-card {
+                background: white;
+                border: 2px solid #e0e0e0;
+                border-radius: 10px;
+                padding: 20px;
+                margin-bottom: 20px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            
+            .product-card h3 {
+                color: #2c3e50;
+                margin: 0 0 15px 0;
+                font-size: 20px;
+                border-bottom: 2px solid #3498db;
+                padding-bottom: 10px;
+            }
+            
+            .form-group {
+                margin-bottom: 15px;
+            }
+            
+            .form-group label {
+                display: block;
+                font-weight: bold;
+                margin-bottom: 5px;
+                color: #555;
+                font-size: 14px;
+            }
+            
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                width: 100%;
+                padding: 12px;
+                font-size: 16px;
+                border: 1px solid #ddd;
+                border-radius: 6px;
+                background-color: #fff;
+            }
+            
+            .form-group select {
+                appearance: none;
+                background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+                background-repeat: no-repeat;
+                background-position: right 10px center;
+                background-size: 20px;
+                padding-right: 40px;
+            }
+            
+            /* Make submit button full width on mobile */
+            .submit-btn {
+                width: 100%;
+                padding: 18px;
+                font-size: 20px;
+                border-radius: 8px;
+            }
+            
+            /* Section headers on mobile */
+            .section-header {
+                font-size: 16px;
+                padding: 12px;
+                margin-top: 20px;
+            }
+            
+            /* Instructions box on mobile */
+            .instructions {
+                font-size: 14px;
+                padding: 12px;
+            }
+            
+            /* Notes section on mobile */
+            .notes-section textarea {
+                font-size: 16px;
+            }
+        }
+        
         @media print {
             body {
                 background-color: white;
@@ -124,35 +250,36 @@
             .submit-section {
                 display: none;
             }
-        }
-        .category-table table {
-            min-width: 1200px;
-        }
-        @media (max-width: 768px) {
-            .container {
-                padding: 15px;
+            .mobile-view {
+                display: none;
             }
-            .category-table {
-                overflow-x: scroll;
+            .desktop-view {
+                display: block !important;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>CLIENT REQUIREMENTS FORM</h1>
-        <p class="subtitle">Personal Care Products Manufacturing</p>
+        <div style="text-align: center; margin-bottom: 30px;">
+            <img src="glyph-logo.png" alt="Glyph Formulations Logo" style="max-width: 250px; height: auto; margin-bottom: 20px;">
+            <h1 style="margin-bottom: 10px; font-style: italic; color: #000000; font-size: 26px;">Every Drop a Glyph of Nature's Wisdom</h1>
+            <h2 style="color: #333333; font-size: 24px; font-weight: normal; margin-bottom: 5px;">CLIENT REQUIREMENTS FORM</h2>
+            <p class="subtitle" style="color: #666666;">Personal Care Products Manufacturing</p>
+        </div>
         
         <div class="instructions">
             <strong>Instructions:</strong> Please fill out this form completely to help us provide you with accurate quotations and samples. Click "Submit Form" at the bottom when complete.
         </div>
 
-        <form id="clientRequirementsForm" action="https://formspree.io/f/mqalpapz" method="POST">
+        <form id="clientRequirementsForm" action="https://formspree.io/f/mgalpapz" method="POST">
             <input type="hidden" name="_subject" value="New Client Requirements Form Submission">
-    <input type="hidden" name="_next" value="https://drayushverma.github.io/client-forms/thank-you.html">
-    <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://drayushverma.github.io/client-forms/thank-you.html">
+            
             <h2 class="section-header">1. CLIENT INFORMATION</h2>
-            <table>
+            
+            <!-- Desktop view for client info -->
+            <table class="desktop-view">
                 <tr>
                     <td style="width: 25%;"><strong>Company Name</strong></td>
                     <td style="width: 75%;"><input type="text" name="companyName" required placeholder="Enter company name"></td>
@@ -187,13 +314,52 @@
                     </td>
                 </tr>
             </table>
+            
+            <!-- Mobile view for client info -->
+            <div class="mobile-view" style="margin-top: 20px;">
+                <div class="product-card">
+                    <h3 style="color: #2c3e50; margin-bottom: 20px;">Client Information</h3>
+                    <div class="form-group">
+                        <label>Company Name</label>
+                        <input type="text" name="companyName_mobile" placeholder="Enter company name">
+                    </div>
+                    <div class="form-group">
+                        <label>Contact Person</label>
+                        <input type="text" name="contactPerson_mobile" placeholder="Enter contact person name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email_mobile" placeholder="Enter email address">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" name="phoneNumber_mobile" placeholder="Enter phone number">
+                    </div>
+                    <div class="form-group">
+                        <label>Country/Region</label>
+                        <input type="text" name="countryRegion_mobile" placeholder="Enter country/region">
+                    </div>
+                    <div class="form-group">
+                        <label>Business Type</label>
+                        <select name="businessType_mobile">
+                            <option value="">Select business type</option>
+                            <option value="brand">Brand Owner</option>
+                            <option value="distributor">Distributor</option>
+                            <option value="retailer">Retailer</option>
+                            <option value="online">E-commerce</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
 
             <h2 class="section-header">2. PRODUCT CATEGORIES & REQUIREMENTS</h2>
             <div class="info-section">
                 Please indicate which categories you're interested in and provide details for each:
             </div>
             
-            <div class="category-table">
+            <!-- Desktop Table View -->
+            <div class="category-table desktop-view">
                 <table>
                     <thead>
                         <tr>
@@ -464,6 +630,456 @@
                     </tbody>
                 </table>
             </div>
+            
+            <!-- Mobile Cards View -->
+            <div class="mobile-view">
+                <!-- Face Wash Card -->
+                <div class="product-card">
+                    <h3>Face Wash</h3>
+                    <div class="form-group">
+                        <label>Interested?</label>
+                        <select name="faceWash_interested_mobile">
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Number of Variants</label>
+                        <input type="number" name="faceWash_variants_mobile" min="0" placeholder="e.g., 3">
+                    </div>
+                    <div class="form-group">
+                        <label>Quantity per Variant (Units)</label>
+                        <input type="number" name="faceWash_quantity_mobile" min="0" placeholder="e.g., 5000">
+                    </div>
+                    <div class="form-group">
+                        <label>Benchmark Product (Brand & Name)</label>
+                        <input type="text" name="faceWash_benchmark_mobile" placeholder="e.g., Cetaphil Gentle Cleanser">
+                    </div>
+                    <div class="form-group">
+                        <label>Special Requirements</label>
+                        <textarea name="faceWash_requirements_mobile" rows="2" placeholder="e.g., sulfate-free"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Packaging Type</label>
+                        <select name="faceWash_packaging_mobile">
+                            <option value="">Select</option>
+                            <option value="tube">Tube</option>
+                            <option value="bottle">Bottle</option>
+                            <option value="pump">Pump Bottle</option>
+                            <option value="sachet">Sachet</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Packaging Size</label>
+                        <input type="text" name="faceWash_size_mobile" placeholder="e.g., 100ml, 150ml">
+                    </div>
+                </div>
+
+                <!-- Moisturizer Card -->
+                <div class="product-card">
+                    <h3>Moisturizer</h3>
+                    <div class="form-group">
+                        <label>Interested?</label>
+                        <select name="moisturizer_interested_mobile">
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Number of Variants</label>
+                        <input type="number" name="moisturizer_variants_mobile" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Quantity per Variant (Units)</label>
+                        <input type="number" name="moisturizer_quantity_mobile" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Benchmark Product (Brand & Name)</label>
+                        <input type="text" name="moisturizer_benchmark_mobile">
+                    </div>
+                    <div class="form-group">
+                        <label>Special Requirements</label>
+                        <textarea name="moisturizer_requirements_mobile" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Packaging Type</label>
+                        <select name="moisturizer_packaging_mobile">
+                            <option value="">Select</option>
+                            <option value="jar">Jar</option>
+                            <option value="tube">Tube</option>
+                            <option value="bottle">Bottle</option>
+                            <option value="pump">Pump Bottle</option>
+                            <option value="airless">Airless Bottle</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Packaging Size</label>
+                        <input type="text" name="moisturizer_size_mobile">
+                    </div>
+                </div>
+
+                <!-- Serum Card -->
+                <div class="product-card">
+                    <h3>Serum</h3>
+                    <div class="form-group">
+                        <label>Interested?</label>
+                        <select name="serum_interested_mobile">
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Number of Variants</label>
+                        <input type="number" name="serum_variants_mobile" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Quantity per Variant (Units)</label>
+                        <input type="number" name="serum_quantity_mobile" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Benchmark Product (Brand & Name)</label>
+                        <input type="text" name="serum_benchmark_mobile">
+                    </div>
+                    <div class="form-group">
+                        <label>Special Requirements</label>
+                        <textarea name="serum_requirements_mobile" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Packaging Type</label>
+                        <select name="serum_packaging_mobile">
+                            <option value="">Select</option>
+                            <option value="dropper">Dropper Bottle</option>
+                            <option value="pump">Pump Bottle</option>
+                            <option value="airless">Airless Bottle</option>
+                            <option value="bottle">Bottle</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Packaging Size</label>
+                        <input type="text" name="serum_size_mobile">
+                    </div>
+                </div>
+
+                <!-- Sunscreen Card -->
+                <div class="product-card">
+                    <h3>Sunscreen</h3>
+                    <div class="form-group">
+                        <label>Interested?</label>
+                        <select name="sunscreen_interested_mobile">
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Number of Variants</label>
+                        <input type="number" name="sunscreen_variants_mobile" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Quantity per Variant (Units)</label>
+                        <input type="number" name="sunscreen_quantity_mobile" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Benchmark Product (Brand & Name)</label>
+                        <input type="text" name="sunscreen_benchmark_mobile">
+                    </div>
+                    <div class="form-group">
+                        <label>Special Requirements</label>
+                        <textarea name="sunscreen_requirements_mobile" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Packaging Type</label>
+                        <select name="sunscreen_packaging_mobile">
+                            <option value="">Select</option>
+                            <option value="tube">Tube</option>
+                            <option value="bottle">Bottle</option>
+                            <option value="pump">Pump Bottle</option>
+                            <option value="spray">Spray Bottle</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Packaging Size</label>
+                        <input type="text" name="sunscreen_size_mobile">
+                    </div>
+                </div>
+
+                <!-- Toner Card -->
+                <div class="product-card">
+                    <h3>Toner</h3>
+                    <div class="form-group">
+                        <label>Interested?</label>
+                        <select name="toner_interested_mobile">
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Number of Variants</label>
+                        <input type="number" name="toner_variants_mobile" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Quantity per Variant (Units)</label>
+                        <input type="number" name="toner_quantity_mobile" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Benchmark Product (Brand & Name)</label>
+                        <input type="text" name="toner_benchmark_mobile">
+                    </div>
+                    <div class="form-group">
+                        <label>Special Requirements</label>
+                        <textarea name="toner_requirements_mobile" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Packaging Type</label>
+                        <select name="toner_packaging_mobile">
+                            <option value="">Select</option>
+                            <option value="bottle">Bottle</option>
+                            <option value="spray">Spray Bottle</option>
+                            <option value="pump">Pump Bottle</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Packaging Size</label>
+                        <input type="text" name="toner_size_mobile">
+                    </div>
+                </div>
+
+                <!-- Face Mask Card -->
+                <div class="product-card">
+                    <h3>Face Mask</h3>
+                    <div class="form-group">
+                        <label>Interested?</label>
+                        <select name="faceMask_interested_mobile">
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Number of Variants</label>
+                        <input type="number" name="faceMask_variants_mobile" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Quantity per Variant (Units)</label>
+                        <input type="number" name="faceMask_quantity_mobile" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Benchmark Product (Brand & Name)</label>
+                        <input type="text" name="faceMask_benchmark_mobile">
+                    </div>
+                    <div class="form-group">
+                        <label>Special Requirements</label>
+                        <textarea name="faceMask_requirements_mobile" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Packaging Type</label>
+                        <select name="faceMask_packaging_mobile">
+                            <option value="">Select</option>
+                            <option value="jar">Jar</option>
+                            <option value="tube">Tube</option>
+                            <option value="sachet">Sachet</option>
+                            <option value="sheet">Sheet Mask</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Packaging Size</label>
+                        <input type="text" name="faceMask_size_mobile">
+                    </div>
+                </div>
+
+                <!-- Body Lotion Card -->
+                <div class="product-card">
+                    <h3>Body Lotion</h3>
+                    <div class="form-group">
+                        <label>Interested?</label>
+                        <select name="bodyLotion_interested_mobile">
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Number of Variants</label>
+                        <input type="number" name="bodyLotion_variants_mobile" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Quantity per Variant (Units)</label>
+                        <input type="number" name="bodyLotion_quantity_mobile" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Benchmark Product (Brand & Name)</label>
+                        <input type="text" name="bodyLotion_benchmark_mobile">
+                    </div>
+                    <div class="form-group">
+                        <label>Special Requirements</label>
+                        <textarea name="bodyLotion_requirements_mobile" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Packaging Type</label>
+                        <select name="bodyLotion_packaging_mobile">
+                            <option value="">Select</option>
+                            <option value="bottle">Bottle</option>
+                            <option value="pump">Pump Bottle</option>
+                            <option value="tube">Tube</option>
+                            <option value="jar">Jar</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Packaging Size</label>
+                        <input type="text" name="bodyLotion_size_mobile">
+                    </div>
+                </div>
+
+                <!-- Shampoo Card -->
+                <div class="product-card">
+                    <h3>Shampoo</h3>
+                    <div class="form-group">
+                        <label>Interested?</label>
+                        <select name="shampoo_interested_mobile">
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Number of Variants</label>
+                        <input type="number" name="shampoo_variants_mobile" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Quantity per Variant (Units)</label>
+                        <input type="number" name="shampoo_quantity_mobile" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Benchmark Product (Brand & Name)</label>
+                        <input type="text" name="shampoo_benchmark_mobile">
+                    </div>
+                    <div class="form-group">
+                        <label>Special Requirements</label>
+                        <textarea name="shampoo_requirements_mobile" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Packaging Type</label>
+                        <select name="shampoo_packaging_mobile">
+                            <option value="">Select</option>
+                            <option value="bottle">Bottle</option>
+                            <option value="pump">Pump Bottle</option>
+                            <option value="sachet">Sachet</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Packaging Size</label>
+                        <input type="text" name="shampoo_size_mobile">
+                    </div>
+                </div>
+
+                <!-- Hair Oil/Serum Card -->
+                <div class="product-card">
+                    <h3>Hair Oil/Serum</h3>
+                    <div class="form-group">
+                        <label>Interested?</label>
+                        <select name="hairOil_interested_mobile">
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Number of Variants</label>
+                        <input type="number" name="hairOil_variants_mobile" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Quantity per Variant (Units)</label>
+                        <input type="number" name="hairOil_quantity_mobile" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Benchmark Product (Brand & Name)</label>
+                        <input type="text" name="hairOil_benchmark_mobile">
+                    </div>
+                    <div class="form-group">
+                        <label>Special Requirements</label>
+                        <textarea name="hairOil_requirements_mobile" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Packaging Type</label>
+                        <select name="hairOil_packaging_mobile">
+                            <option value="">Select</option>
+                            <option value="bottle">Bottle</option>
+                            <option value="dropper">Dropper Bottle</option>
+                            <option value="pump">Pump Bottle</option>
+                            <option value="spray">Spray Bottle</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Packaging Size</label>
+                        <input type="text" name="hairOil_size_mobile">
+                    </div>
+                </div>
+
+                <!-- Other Products Card -->
+                <div class="product-card">
+                    <h3>Other Products</h3>
+                    <div class="form-group">
+                        <label>Product Category</label>
+                        <input type="text" name="other_category_mobile" placeholder="Specify product type">
+                    </div>
+                    <div class="form-group">
+                        <label>Interested?</label>
+                        <select name="other_interested_mobile">
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Number of Variants</label>
+                        <input type="number" name="other_variants_mobile" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Quantity per Variant (Units)</label>
+                        <input type="number" name="other_quantity_mobile" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Benchmark Product (Brand & Name)</label>
+                        <input type="text" name="other_benchmark_mobile">
+                    </div>
+                    <div class="form-group">
+                        <label>Special Requirements</label>
+                        <textarea name="other_requirements_mobile" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Packaging Type</label>
+                        <select name="other_packaging_mobile">
+                            <option value="">Select</option>
+                            <option value="tube">Tube</option>
+                            <option value="bottle">Bottle</option>
+                            <option value="jar">Jar</option>
+                            <option value="pump">Pump Bottle</option>
+                            <option value="airless">Airless Bottle</option>
+                            <option value="dropper">Dropper Bottle</option>
+                            <option value="spray">Spray Bottle</option>
+                            <option value="sachet">Sachet</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Packaging Size</label>
+                        <input type="text" name="other_size_mobile">
+                    </div>
+                </div>
+            </div>
 
             <div class="notes-section">
                 <h2 class="section-header">3. ADDITIONAL NOTES</h2>
@@ -485,7 +1101,7 @@
     <script>
         document.getElementById('clientRequirementsForm').addEventListener('submit', function(e) {
             return; // Stop all JavaScript - let Formspree handle the form
-           // e.preventDefault();
+            // e.preventDefault();
             
             // Get form data
             const formData = new FormData(this);
@@ -544,7 +1160,7 @@
             // Option 1: Using mailto (opens email client)
             const subject = encodeURIComponent('New Client Requirements Form Submission');
             const body = encodeURIComponent(emailBody);
-            const mailtoLink = `mailto:sales@glyphformulations.com?subject=${subject}&body=${body}`;
+            const mailtoLink = `mailto:your-email@company.com?subject=${subject}&body=${body}`;
             
             // Open email client
             window.location.href = mailtoLink;
