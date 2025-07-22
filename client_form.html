@@ -124,7 +124,7 @@
         }
         
         /* Mobile styles */
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             .container {
                 padding: 15px;
                 margin: 10px;
@@ -272,17 +272,17 @@
             <strong>Instructions:</strong> Please fill out this form completely to help us provide you with accurate quotations and samples. Click "Submit Form" at the bottom when complete.
         </div>
 
-        <form id="clientRequirementsForm" action="https://formspree.io/f/mgalpapz" method="POST">
+        <form id="clientRequirementsForm" action="https://formspree.io/f/mqalpapz" method="POST">
             <input type="hidden" name="_subject" value="New Client Requirements Form Submission">
             <input type="hidden" name="_next" value="https://drayushverma.github.io/client-forms/thank-you.html">
             
             <h2 class="section-header">1. CLIENT INFORMATION</h2>
             
             <!-- Desktop view for client info -->
-            <table class="desktop-view">
+            <table class="desktop-view" style="width: 100%;">
                 <tr>
-                    <td style="width: 25%;"><strong>Company Name</strong></td>
-                    <td style="width: 75%;"><input type="text" name="companyName" required placeholder="Enter company name"></td>
+                    <td style="width: 30%; min-width: 150px;"><strong>Company Name</strong></td>
+                    <td style="width: 70%;"><input type="text" name="companyName" required placeholder="Enter company name"></td>
                 </tr>
                 <tr>
                     <td><strong>Contact Person</strong></td>
